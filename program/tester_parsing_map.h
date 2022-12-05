@@ -6,7 +6,7 @@
 /*   By: averdon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 20:21:20 by averdon           #+#    #+#             */
-/*   Updated: 2022/12/04 21:38:11 by averdon          ###   ########.fr       */
+/*   Updated: 2022/12/05 18:02:50 by averdon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define BOLD "\e[1m"
 
 int		launch_map_test(char **files, char **args, int fd_read, int fd_write);
-int		check_output_user(char *file, int fd, int signal);
-int		check_valgrind_user(int mode, int *signal);
+int		check_output_user(char *file, int fd);
+int		check_valgrind_user(void);
 
 char	**create_tab_directory(char *path);
 void	free_tab(char **tab);

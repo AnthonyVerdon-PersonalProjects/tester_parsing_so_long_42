@@ -6,7 +6,7 @@
 /*   By: averdon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 18:51:57 by averdon           #+#    #+#             */
-/*   Updated: 2022/12/04 22:48:27 by averdon          ###   ########.fr       */
+/*   Updated: 2022/12/05 18:02:38 by averdon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	launch_game(char *files, char **args, int fd_read, int fd_write)
 {
 	int		pid;
 	int		error_detected;
-	int		signal;
 
 	error_detected = 0;
 	args[6] = ft_strjoin("wrong_map/", files);
@@ -32,10 +31,8 @@ int	launch_game(char *files, char **args, int fd_read, int fd_write)
 	{
 		wait(NULL);
 		free(args[6]);
-		signal = 0;
-		error_detected += check_valgrind_user(0, &signal);
-		error_detected += check_output_user(files, fd_read, signal);
-		error_detected += check_valgrind_user(1, &signal);
+		error_detected += check_output_user(files, fd_read);
+		error_detected += check_valgrind_user();
 	}
 	return (error_detected);
 }
