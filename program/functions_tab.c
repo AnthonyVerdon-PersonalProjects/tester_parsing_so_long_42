@@ -17,7 +17,6 @@ void	sort_tab(char **tab, int size)
 	int		count;
 	int		count2;
 	char	*temp;
-	int	i;
 
 	count = 0;
 	temp = NULL;
